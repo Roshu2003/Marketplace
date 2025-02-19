@@ -19,6 +19,7 @@ router.get("/", (req, res) => {
           name: record.get("Name"),
           description: record.get("Description"),
           price: record.get("Price"),
+          imageUrl: record.get("ImageURL"),
         }))
       );
     })
@@ -65,33 +66,6 @@ router.post("/", (req, res) => {
 });
 
 // Update product
-// router.put("/:id", (req, res) => {
-//   const { id } = req.params;
-//   const { name, description, price, imageUrl } = req.body;
-//   console.log(name, description, price, imageUrl);
-
-//   base("Products").update(
-//     id,
-//     {
-//       Name: name,
-//       Description: description,
-//       Price: price,
-//       ImageURL: imageUrl, // Include the imageUrl field
-//     },
-//     (err, record) => {
-//       if (err) {
-//         res.status(500).json({ error: err.message });
-//         return;
-//       }
-//       res.json({
-//         id: record.id,
-//         name: record.get("Name"),
-//         description: record.get("Description"),
-//         price: record.get("Price"),
-//       });
-//     }
-//   );
-// });
 router.put("/:id", (req, res) => {
   const { id } = req.params;
   const { name, description, price, imageUrl } = req.body;
